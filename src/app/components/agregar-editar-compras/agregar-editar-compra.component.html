@@ -1,0 +1,46 @@
+<div class="title">
+  <h1>{{operacion}} Compra</h1>
+</div>
+<app-spinner *ngIf="loading"></app-spinner>
+<div class="container">
+  <mat-card class="card">
+  <mat-card-subtitle>
+    Datos de la compra
+  </mat-card-subtitle>
+  <br>
+  <form [formGroup]="form" (ngSubmit)="agregarEditarCompras()">
+    <mat-grid-list cols="2" rowHeight=80px>
+      <mat-grid-tile>
+        <mat-form-field appearance="fill">
+          <mat-label>Nombre</mat-label>
+          <input type="string" formControlName="nombre" matInput autocomplete="off">
+        </mat-form-field>
+      </mat-grid-tile>
+      <mat-grid-tile>
+        <mat-form-field appearance="fill">
+          <mat-label>Cantidad</mat-label>
+          <input type="number" formControlName="cantidad" matInput>
+        </mat-form-field>
+      </mat-grid-tile>
+      <mat-grid-tile>
+        <mat-form-field appearance="fill">
+          <mat-label>Numero de celular</mat-label>
+          <input type="tel" matInput formControlName="phone">
+          <mat-icon matSuffix>phone</mat-icon>
+        </mat-form-field>
+      </mat-grid-tile>
+      <mat-grid-tile>
+        <mat-form-field appearance="fill">
+          <mat-label>email</mat-label>
+          <input type="email" matInput placeholder="pat@example.com" formControlName="email">
+        </mat-form-field>
+      </mat-grid-tile>
+      <mat-grid-tile  [colspan]="2">
+        <button [disabled]="form.invalid" type="submit" class="btnAceptar" mat-flat-button>Aceptar</button>
+        <button routerLink="/listCompras"  mat-flat-button color="primary">Volver</button>
+      </mat-grid-tile>
+    </mat-grid-list>
+
+  </form>
+</mat-card>
+</div>
